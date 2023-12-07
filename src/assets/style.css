@@ -1,0 +1,71 @@
+@import url("./normalize.css");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@200;400;600&display=swap");
+
+:root {
+  --primary-color: #9ec8b9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Sora", sans-serif;
+}
+
+.container {
+  max-width: 1340px;
+  width: 100%;
+  margin: auto;
+}
+html,
+body,
+#app {
+  width: 100%;
+  height: 100vh;
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+.login-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login-wrapper h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #ae445a;
+  margin-bottom: 20px;
+}
+.login-wrapper > form {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 150px;
+  border: 2px solid #fff;
+  border-radius: 15px;
+}
+.login-wrapper > form label {
+  color: #ae445a;
+  font-weight: 600;
+}
+.login-wrapper > form input {
+  outline: none;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+.login-wrapper > form .login-btn {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background-color: #ae445a;
+  color: #fff;
+  font-weight: 600;
+
+  cursor: pointer;
+}
