@@ -1,5 +1,7 @@
 <template>
-  <button :type="btnType" :class="class" @click="$emit('click')">{{ label }}</button>
+  <button :type="btnType" :class="class" @click="handleButtonClick" :disabled="loading">
+    {{ label }}
+  </button>
 </template>
 
 <script>
@@ -15,7 +17,18 @@ export default {
     },
     class: {
       type: String,
-      required: true,
+    },
+    city: {
+      type: String,
+    },
+    loading: {
+      type: Boolean,
+    },
+  },
+
+  methods: {
+    handleButtonClick() {
+      this.$emit("cityButtonClick", this.city);
     },
   },
 };

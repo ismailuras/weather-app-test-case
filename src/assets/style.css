@@ -11,6 +11,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Sora", sans-serif;
+  list-style-type: none;
 }
 
 html,
@@ -95,6 +96,52 @@ body {
 }
 .login-wrapper > form .login-btn:hover {
   opacity: 0.8;
+}
+
+.weather-card-comp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  gap: 20px;
+}
+.weather-card-comp .weather-card-wrapper {
+  width: 100%;
+  padding: 10px 10px 50px 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 31px 34px 21px 8px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.weather-card-comp .weather-card-wrapper .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  color: var(--primary-text-color);
+  font-weight: 600;
+}
+.weather-card-comp .weather-card-wrapper .weather-card-body > ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px 8px 0;
+  font-size: 18px;
+}
+.weather-card-comp .weather-card-wrapper .weather-card-body > ul li:not(:last-child) {
+  border-bottom: 1px solid var(--primary-text-color);
+}
+.weather-card-comp .weather-card-wrapper .refresh-btn {
+  text-align: center;
+}
+.weather-card-comp .weather-card-wrapper .refresh-btn > button {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background-color: var(--primary-text-color);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
 }
 
 @media screen and (max-width: 1399.98px) {
