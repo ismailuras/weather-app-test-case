@@ -2,40 +2,64 @@
   <div class="container login-wrapper">
     <form @submit.prevent="login">
       <h2>Giriş Yap</h2>
-      <label for="username">Kullanıcı Adı</label>
+
+      <label :for="`username`">Kullanıcı Adı</label>
       <input type="text" id="username" v-model="username" required />
       <br />
-      <label for="password">Parola</label>
-      <input :type="showPassword ? 'text' : 'password'" id="password" v-model="password" required />
-      <input type="checkbox" v-model="showPassword" />
-      <v-icon name="io-eye-sharp" />
 
+      <label :for="`password`">Kullanıcı Adı</label>
+      <div class="password-wrapper">
+        <input
+          :type="showPassword ? 'text' : 'password'"
+          id="password"
+          v-model="password"
+          required />
+        <button type="button" @click="togglePasswordVisibility">
+          <oh-vue-icon name="io-eye-sharp" v-if="!showPassword" />
+          <oh-vue-icon name="io-eye-off" v-else />
+        </button>
+      </div>
       <br />
-      <button class="login-btn">Giriş</button>
+
+      <p style="font-size: 12px; color: #be3144">{{ errorMessage }}</p>
+      <Button :label="`Giriş`" :class="`login-btn`"></Button>
     </form>
   </div>
 </template>
 
 <script>
-import { IoEyeSharp } from "oh-vue-icons/icons";
+import { OhVueIcon } from "oh-vue-icons";
+import Button from "../components/Button.vue";
+
 export default {
   data() {
     return {
       username: "admin",
       password: "parola",
+      errorMessage: "",
       showPassword: false,
-      "v-icon": IoEyeSharp,
     };
   },
 
   methods: {
+    // password visibility function
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword;
+    },
+    // login function
     login() {
       if (this.username === "admin" && this.password === "parola") {
+        localStorage.setItem("isLoggedIn", "true");
         this.$router.push("/weather");
       } else {
-        alert("Kullanıcı adı veya parola hatalı.");
+        this.errorMessage = "Kullanıcı adı veya parola hatalı.";
       }
     },
+  },
+
+  components: {
+    OhVueIcon,
+    Button,
   },
 };
 </script>
