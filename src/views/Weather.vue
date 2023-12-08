@@ -9,31 +9,20 @@
         @getWeatherDataForCity="getWeatherDataForCity"
         :weather="data"></weather-card>
     </div>
-    <!-- <button @click="getWeatherData">Click</button>
 
-    <form @submit.prevent="getWeatherData">
-      <label for="city">City:</label>
-      <input type="text" id="city" v-model="city" required />
-      <button type="submit">Get Weather</button>
-    </form>
-    <div v-if="weather">
-      <h3>{{ weather.name }}</h3>
-      <p>Temperature: {{ weather.main.temp }}°C</p>
-      <p>Weather: {{ weather.weather[0].description }}</p>
-    </div> -->
+    <search-weather @getWeatherDataForCity="getWeatherDataForCity"></search-weather>
   </div>
 </template>
 
 <script>
 import WeatherCard from "./WeatherCard.vue";
+import SearchWeather from "./SearchWeather.vue";
 import axios from "axios";
 import { reactive } from "vue";
 
 export default {
   data() {
     return {
-      city: "",
-      weather: null,
       weatherData: reactive({}),
     };
   },
@@ -45,16 +34,10 @@ export default {
 
       try {
         const response = await axios.get(apiUrl);
-        console.log(response.data);
         this.weatherData[city] = response.data;
       } catch (error) {
-        // error mesaj ekle
         console.log(error);
       }
-    },
-
-    async getWeatherData() {
-      await this.getWeatherDataForCity(this.city);
     },
   },
 
@@ -65,6 +48,7 @@ export default {
 
   components: {
     WeatherCard,
+    SearchWeather,
   },
 };
 </script>

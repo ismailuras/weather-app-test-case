@@ -1,5 +1,5 @@
 <template>
-  <button :type="btnType" :class="class" @click="handleButtonClick" :disabled="loading">
+  <button :type="btnType" :class="class" @click="handleButtonClick">
     {{ label }}
   </button>
 </template>
@@ -21,9 +21,12 @@ export default {
     city: {
       type: String,
     },
-    loading: {
-      type: Boolean,
-    },
+  },
+
+  data() {
+    return {
+      loading: false,
+    };
   },
 
   methods: {

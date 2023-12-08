@@ -18,7 +18,7 @@
           Rüzgar<span>{{ weather.wind.speed }}</span>
         </li>
         <li>
-          Açıklama<span>{{ weather.weather[0].description }}</span>
+          Açıklama<span>{{ translateWeatherDescription(weather.weather[0].description) }}</span>
         </li>
       </ul>
     </div>
@@ -30,6 +30,7 @@
 
 <script>
 import Button from "../components/Button.vue";
+import translateWeatherDescription from "../helpers/helper.js";
 
 export default {
   props: {
@@ -47,6 +48,12 @@ export default {
     handleButtonClick(city) {
       this.$emit("getWeatherDataForCity", city);
     },
+  },
+
+  setup() {
+    return {
+      translateWeatherDescription,
+    };
   },
 
   components: {
