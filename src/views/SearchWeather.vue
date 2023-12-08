@@ -52,7 +52,7 @@
 <script>
 import axios from "axios";
 import { OhVueIcon } from "oh-vue-icons";
-import translateWeatherDescription from "../helpers/helper.js";
+import translateWeatherDescription, { formatUnixDate } from "../helpers/helper.js";
 
 export default {
   data() {
@@ -85,17 +85,12 @@ export default {
         throw error;
       }
     },
-
-    formatUnixDate(unixTimeStamp) {
-      const date = new Date(unixTimeStamp * 1000);
-      const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-      return date.toLocaleDateString("tr-TR", options);
-    },
   },
 
   setup() {
     return {
       translateWeatherDescription,
+      formatUnixDate,
     };
   },
 

@@ -30,7 +30,7 @@
 
 <script>
 import Button from "../components/Button.vue";
-import translateWeatherDescription from "../helpers/helper.js";
+import translateWeatherDescription, { formatUnixDate } from "../helpers/helper.js";
 
 export default {
   props: {
@@ -39,12 +39,6 @@ export default {
   },
 
   methods: {
-    formatUnixDate(unixTimeStamp) {
-      const date = new Date(unixTimeStamp * 1000);
-      const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-      return date.toLocaleDateString("tr-TR", options);
-    },
-
     handleButtonClick(city) {
       this.$emit("getWeatherDataForCity", city);
     },
@@ -53,6 +47,7 @@ export default {
   setup() {
     return {
       translateWeatherDescription,
+      formatUnixDate,
     };
   },
 
