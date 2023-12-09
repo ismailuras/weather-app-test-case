@@ -52,6 +52,7 @@
 <script>
 import axios from "axios";
 import { OhVueIcon } from "oh-vue-icons";
+import { useToast } from "vue-toastification";
 import translateWeatherDescription, { formatUnixDate } from "../helpers/helper.js";
 
 export default {
@@ -63,6 +64,7 @@ export default {
     };
   },
   emits: ["getWeatherDataForCity"],
+
   methods: {
     async searchWeather() {
       try {
@@ -77,12 +79,18 @@ export default {
     async getWeatherDataForCity(city) {
       const apiKey = "54c93f26db3d801b7686b013c699984f";
       const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+      const toast = useToast();
 
       try {
         const response = await axios.get(apiUrl);
         return response;
       } catch (error) {
-        throw error;
+        const errorMessage = error.response.data.message;
+        if (errorMessage === "city not found") {
+          toast.error("Aradığınız şehir bulunamadı.");
+        } else {
+          toast.error("Beklenmedik bir hata oluştu.");
+        }
       }
     },
   },

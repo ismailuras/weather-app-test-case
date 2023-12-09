@@ -23,12 +23,6 @@ export default {
     },
   },
 
-  data() {
-    return {
-      loading: false,
-    };
-  },
-
   methods: {
     handleButtonClick() {
       this.$emit("cityButtonClick", this.city);

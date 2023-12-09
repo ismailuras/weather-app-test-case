@@ -7,7 +7,7 @@
       <input type="text" id="username" v-model="username" required />
       <br />
 
-      <label :for="`password`">Kullanıcı Adı</label>
+      <label :for="`password`">Parola</label>
       <div class="password-wrapper">
         <input
           :type="showPassword ? 'text' : 'password'"
