@@ -1,4 +1,4 @@
-import { createApp } from "vue"; // Import createApp from Vue 3
+import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import helpers from "./helpers/helper.js";
@@ -20,7 +20,7 @@ const plugins = {
 
 const options = {
   position: "top-right",
-  timeout: 3000,
+  timeout: 2000,
   closeOnClick: true,
   pauseOnHover: true,
   draggable: true,

@@ -29,6 +29,7 @@ body {
   max-width: 1340px;
   width: 100%;
   margin: auto;
+  padding: 0 20px;
 }
 
 .login-wrapper {
@@ -182,6 +183,27 @@ body {
   top: 0;
 }
 
+.logout-comp {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.logout-comp > button {
+  padding: 8px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--primary-text-color);
+  font-weight: 600;
+  border-radius: 5px;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+}
+.logout-comp > button:hover {
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 1399.98px) {
 }
 
@@ -190,9 +212,18 @@ body {
 @media screen and (max-width: 991.98px) {
 }
 @media screen and (max-width: 767.98px) {
+  .weather-card-comp {
+    flex-direction: column;
+  }
 }
 @media screen and (max-width: 575.98px) {
   .login-wrapper > form {
     padding: 30px;
+  }
+  .weather-card-comp .weather-card-wrapper .weather-card-body > ul li {
+    font-size: 15px;
+  }
+  .date {
+    font-size: 14px;
   }
 }

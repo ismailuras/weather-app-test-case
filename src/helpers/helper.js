@@ -9,6 +9,7 @@ export default function translateWeatherDescription(description) {
     mist: "Sisli",
     "heavy intensity rain": "Şiddetli yağmur",
     "thunderstorm with light rain": "Hafif yağmurlu fırtına",
+    "overcast clouds": "Kapalı bulutlu",
   };
 
   return translationMap[description] || description;

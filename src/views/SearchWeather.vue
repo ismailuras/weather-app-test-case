@@ -7,7 +7,7 @@
           class="search-input"
           type="text"
           id="city"
-          placeholder="Arama yapmak için şehir adını giriniz."
+          placeholder="Şehir adı giriniz..."
           v-model="searchCity"
           required />
         <button type="submit">

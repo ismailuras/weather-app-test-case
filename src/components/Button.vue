@@ -1,5 +1,5 @@
 <template>
-  <button :type="btnType" :class="class" @click="handleButtonClick">
+  <button :type="btnType" :class="class">
     {{ label }}
   </button>
 </template>
@@ -12,7 +12,7 @@ export default {
       required: true,
     },
     btnType: {
-      tpye: String,
+      type: String,
       default: "submit",
     },
     class: {
@@ -20,12 +20,6 @@ export default {
     },
     city: {
       type: String,
-    },
-  },
-
-  methods: {
-    handleButtonClick() {
-      this.$emit("cityButtonClick", this.city);
     },
   },
 };

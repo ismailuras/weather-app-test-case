@@ -2,7 +2,7 @@
   <div class="weather-card-wrapper">
     <div class="header">
       <h2>{{ city }}</h2>
-      <div class="date">
+      <div class="date" style="white-space: normal">
         {{ formatUnixDate(weather.dt) }}
       </div>
     </div>
@@ -12,7 +12,7 @@
           Sıcaklık<span>{{ Math.round(weather.main.temp) }}°C</span>
         </li>
         <li>
-          Nem<span>{{ weather.main.humidity }} %</span>
+          Nem<span>{{ weather.main.humidity }}%</span>
         </li>
         <li>
           Rüzgar<span>{{ weather.wind.speed }}</span>
@@ -21,9 +21,6 @@
           Açıklama<span>{{ translateWeatherDescription(weather.weather[0].description) }}</span>
         </li>
       </ul>
-    </div>
-    <div class="refresh-btn">
-      <Button :label="`Yenile`" :city="city" @cityButtonClick="handleButtonClick"></Button>
     </div>
   </div>
 </template>
@@ -39,8 +36,12 @@ export default {
   },
 
   methods: {
-    handleButtonClick(city) {
-      this.$emit("getWeatherDataForCity", city);
+    async handleButtonClick(city) {
+      try {
+        return await this.$emit("getWeatherDataForCity", city);
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 
@@ -49,10 +50,6 @@ export default {
       translateWeatherDescription,
       formatUnixDate,
     };
-  },
-
-  components: {
-    Button,
   },
 };
 </script>
