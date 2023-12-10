@@ -32,7 +32,7 @@
               Sıcaklık<span>{{ Math.round(searchedWeather.main.temp) }}°C</span>
             </li>
             <li>
-              Nem<span>{{ searchedWeather.main.humidity }} %</span>
+              Nem<span>{{ searchedWeather.main.humidity }}%</span>
             </li>
             <li>
               Rüzgar<span>{{ searchedWeather.wind.speed }}</span>
@@ -69,10 +69,12 @@ export default {
     async searchWeather() {
       try {
         const response = await this.getWeatherDataForCity(this.searchCity);
-        this.city = this.searchCity;
-        this.searchedWeather = response.data;
+        if (response) {
+          this.city = this.searchCity;
+          this.searchedWeather = response.data;
+        }
       } catch (error) {
-        console.log(error);
+        this.city = "";
       }
     },
 

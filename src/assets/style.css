@@ -18,7 +18,8 @@ html,
 body,
 #app {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  overflow-x: hidden;
 }
 body {
   background: linear-gradient(to bottom, #8e44ad, #085a91);
@@ -204,13 +205,6 @@ body {
   opacity: 0.8;
 }
 
-@media screen and (max-width: 1399.98px) {
-}
-
-@media screen and (max-width: 1199.98px) {
-}
-@media screen and (max-width: 991.98px) {
-}
 @media screen and (max-width: 767.98px) {
   .weather-card-comp {
     flex-direction: column;
@@ -225,5 +219,8 @@ body {
   }
   .date {
     font-size: 14px;
+  }
+  .logout-comp > button {
+    font-size: 12px;
   }
 }
