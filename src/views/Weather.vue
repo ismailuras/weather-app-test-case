@@ -1,9 +1,11 @@
 <template>
   <div class="container">
+    <!-- logout button -->
     <div class="logout-comp">
       <logout></logout>
     </div>
     <h1 style="text-align: center; color: #fff">Şehirler hakkında günlük hava tahminleri.</h1>
+    <!-- weather card for specified cities -->
     <div class="weather-card-comp">
       <weather-card
         v-for="(data, city) in weatherData"
@@ -12,7 +14,7 @@
         @getWeatherDataForCity="getWeatherDataForCity"
         :weather="data"></weather-card>
     </div>
-
+    <!-- search weather component -->
     <search-weather @getWeatherDataForCity="getWeatherDataForCity"></search-weather>
   </div>
 </template>
@@ -47,6 +49,7 @@ export default {
     },
   },
 
+  // when the page is first loaded, it returns weather information for specified cities
   created() {
     const initialCities = ["Ankara", "Istanbul"];
     initialCities.forEach((city) => this.getWeatherDataForCity(city));

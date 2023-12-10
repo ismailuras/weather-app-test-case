@@ -8,6 +8,7 @@ import router from "@/router";
 
 export default {
   methods: {
+    // function that allows the user to log out and return to the login page
     handleLogout() {
       localStorage.removeItem("isLoggedIn");
       router.push("/login");

@@ -10,14 +10,17 @@ import "vue-toastification/dist/index.css";
 
 import "./assets/style.css";
 
+// icons recording
 addIcons(IoEyeSharp, IoEyeOff, LaSearchPlusSolid);
 
+// helpers file recording
 const plugins = {
   install(app) {
     app.config.globalProperties.$helpers = helpers;
   },
 };
 
+// toast options
 const options = {
   position: "top-right",
   timeout: 2000,

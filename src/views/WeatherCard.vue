@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import Button from "../components/Button.vue";
 import translateWeatherDescription, { formatUnixDate } from "../helpers/helper.js";
 
 export default {
@@ -35,16 +34,7 @@ export default {
     weather: Object,
   },
 
-  methods: {
-    async handleButtonClick(city) {
-      try {
-        return await this.$emit("getWeatherDataForCity", city);
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  },
-
+  // functions that translate weather description into Turkish and make Unix formatted date information readable
   setup() {
     return {
       translateWeatherDescription,

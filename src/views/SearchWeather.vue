@@ -65,6 +65,7 @@ export default {
   },
   emits: ["getWeatherDataForCity"],
 
+  // function that returns results of city searches
   methods: {
     async searchWeather() {
       try {
@@ -97,6 +98,7 @@ export default {
     },
   },
 
+  // functions that translate weather description into Turkish and make Unix formatted date information readable
   setup() {
     return {
       translateWeatherDescription,
