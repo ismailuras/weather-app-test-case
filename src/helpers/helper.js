@@ -11,6 +11,7 @@ export default function translateWeatherDescription(description) {
     "thunderstorm with light rain": "Hafif yağmurlu fırtına",
     "overcast clouds": "Kapalı bulutlu",
     "scattered clouds": "Parçalı bulutlu",
+    "few clouds": "Az bulutlu",
   };
 
   return translationMap[description] || description;
