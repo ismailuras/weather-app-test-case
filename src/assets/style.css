@@ -209,6 +209,9 @@ body {
   .weather-card-comp {
     flex-direction: column;
   }
+  .search-form > form {
+    margin-bottom: 20px;
+  }
 }
 @media screen and (max-width: 575.98px) {
   .login-wrapper > form {
